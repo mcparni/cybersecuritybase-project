@@ -9,7 +9,7 @@
         <p>Here are all the guests signed up so far:</p>
         <ul>
             <li th:each="signup: ${signups}">
-                <span>Name: </span><span th:utext="${signup.name}">name</span>   
+                <span>Name: </span><span th:text="${signup.name}">name</span>   
             </li>
         </ul>
         <form th:action="@{/logout}" method="post">
