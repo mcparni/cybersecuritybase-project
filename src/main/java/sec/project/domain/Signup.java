@@ -1,12 +1,14 @@
 package sec.project.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import sec.project.config.SensitiveDataConverter;
 
 @Entity
 @Table(name = "Signup")
@@ -16,11 +18,14 @@ public class Signup extends AbstractPersistable<Long> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-    @Column(name = "name")	
+    @Column(name = "name")
+	@Convert(converter = SensitiveDataConverter.class)	
 	private String name;
 	@Column(name = "address")
+	@Convert(converter = SensitiveDataConverter.class)
     private String address;
 	@Column(name = "credit_card")
+	@Convert(converter = SensitiveDataConverter.class)
     private String ccnr;
 
     public Signup() {

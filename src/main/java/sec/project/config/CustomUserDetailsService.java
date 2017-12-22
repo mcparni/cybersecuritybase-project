@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import sec.project.domain.Users;
 import sec.project.repository.UserRepository;
 
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -29,9 +30,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     public void init() {
         this.accountDetails = new TreeMap<>();
 		String username = "john";
-		String password = "john";
-		this.accountDetails.put(username, passwordEncoder.encode(password));
-		userRepository.save(new Users(username, password));
+		String password ="$2a$10$ELESJXaBQA3BDJiH2JPrZOx.lpuXXTbegYAtlDSv0b3UjTLwwxvF.";
+		this.accountDetails.put(username,password);
+		userRepository.save(new Users(username,password));
     }
 
     @Override

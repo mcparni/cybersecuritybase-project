@@ -1,12 +1,14 @@
 package sec.project.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import sec.project.config.SensitiveDataConverter;
 
 
 @Entity
@@ -15,7 +17,8 @@ public class Users extends AbstractPersistable<Long>  {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+	
+	@Convert(converter = SensitiveDataConverter.class)
     @Column(name = "username")
 	private String username;
 	@Column(name = "password")
