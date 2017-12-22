@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         http.authorizeRequests()
                 .antMatchers("/h2-console/*").denyAll()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated();
         http.formLogin().defaultSuccessUrl("/form", true)
                 .permitAll();
 		
