@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /form
+Disallow: /h2-console
+Disallow: /done
