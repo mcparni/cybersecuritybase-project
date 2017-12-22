@@ -24,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().sameOrigin();
         
         http.authorizeRequests()
-                .antMatchers("/h2-console/*").permitAll()
+                .antMatchers("/h2-console/*").denyAll()
                 .anyRequest().permitAll();
         http.formLogin().defaultSuccessUrl("/form", true)
                 .permitAll();
